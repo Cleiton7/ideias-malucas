@@ -1,0 +1,31 @@
+{% extends 'shared/layout.html' %}
+
+{% block conteudo %}
+
+<h1>Ideias Malucas</h1>
+
+{{ msg }}
+
+<form action="/" method="post">
+    {% csrf_token %} <!-- csrf é obrigatório ser declarado, por questões se segurança -->
+    <label for="">Nome</label>
+    <input type="text" name="nome">
+
+    <label for="">Sobrenome</label>
+    <input type="text" name="sobrenome">
+
+    <label for="E-mail">E-mail</label>
+    <input type="email" name="email">
+
+    <select name="genero" id="">
+        <option value="F">Feminino</option>
+        <option value="M">Masculino</option>
+        <option value="O">Outro</option>
+    </select>
+
+    <textarea type="text" name="biografia"></textarea>
+
+    <input type="submit" value="Cadastrar">
+</form>
+
+{% endblock %}
