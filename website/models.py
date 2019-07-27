@@ -42,3 +42,46 @@ class Pessoa(models.Model):
 
     def __str__(self):
         return self.nome + ' ' + self.sobrenome
+
+class Ideia(models.Model):
+    CATEGORIAS = (
+        ('TERRA_PLANA', 'Terra Plana'),
+        ('CONTRA_GROGER', 'Ideias para Coach Groger'),
+        ('CONTRA_JOAO', 'Ideias contra João'),
+        ('PUBLICAS', 'Públicas'),
+        ('OUTROS', 'Outros'),
+    )
+
+    pessoa = models.ForeignKey(
+        Pessoa, on_delete = None
+    )
+
+    titulo = models.CharField(
+        max_length = 255,
+        verbose_name = 'Noma da Ideia',
+        unique = True
+    )
+
+    descricao = models.TextField(
+        verbose_name = 'Descreva sua ideia'
+    )
+
+    categorias = models.CharField(
+        max_length = 255,
+        verbose_name = 'categorias',
+        choices = CATEGORIAS
+    )
+
+    categoria_outros = models.CharField(
+        null = True,
+        blank = True,
+        max_length = 255,
+        verbose_name = 'Caso outros, qual?'
+    )
+
+    data_de_criacao = models.DateTimeField(auto_now_add=True)
+    data_de_atualizacao = models.DateTimeField(auto_now=True)
+    ativo = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.pessoa.nome + ' - ' + self.titulo

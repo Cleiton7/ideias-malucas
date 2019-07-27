@@ -2,13 +2,16 @@
 
 {% block conteudo %}
 
-<h1>Sobre</h1>
+<h1>Listagem de Ideias</h1>
 
-<ul>
-{% for pessoa in pessoas %}
-    <li>{{ pessoa.nome }} {{ pessoa.sobrenome }}</li>
-{% endfor %}
-
-</ul>
+<p>
+    {% for ideia in ideia %}
+        <p>{{ ideia.pessoa.nome }}</p>
+        <p>{{ ideia.titulo }}</p>
+        <p>{{ ideia.categorias }}</p>
+        <p>{{ ideia.descricao }}</p>
+        <hr>
+    {% endfor %}
+</p>
 
 {% endblock %}

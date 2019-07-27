@@ -3,11 +3,12 @@
 {% block conteudo %}
 
 <h1>Ideias Malucas</h1>
+<h2>Cadastre-se</h2>
 
 {{ msg }}
 
 <form action="/" method="post">
-    {% csrf_token %} <!-- csrf é obrigatório ser declarado, por questões se segurança -->
+    {% csrf_token %} <!-- csrf é obrigatório ser declarado, funciona como se fosse um carimbo a cada requisição -->
     <label for="">Nome</label>
     <input type="text" name="nome">
 
@@ -17,12 +18,14 @@
     <label for="E-mail">E-mail</label>
     <input type="email" name="email">
 
+    <label for="">Gênero</label>
     <select name="genero" id="">
         <option value="F">Feminino</option>
         <option value="M">Masculino</option>
         <option value="O">Outro</option>
     </select>
 
+    <label for="">Biografia</label>
     <textarea type="text" name="biografia"></textarea>
 
     <input type="submit" value="Cadastrar">
