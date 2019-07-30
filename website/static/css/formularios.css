@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'Roboto Condensed';
+}
+
+h1, h2 {
+    text-align: center;
+    font-size: 24pt;
+    margin: 10px;
+}
+
+/* formatação do paragrafo na pagina de login */
+p {
+    text-align: center;
+}
+
+/* subtitulo da pagina ideias */
+.subtitulo_ideias h2{
+    font-size: 16pt;
+}
+
+.formulario form{
+    width: 100vw;
+    height: 390px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.campo_form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 30%;
+}
+
+.campo_form input {
+    margin: 10px 0;
+}
+
+.campo_form input,
+.campo_form select,
+.campo_form textarea {
+    padding: 5px;
+    height: 25px;
+    border: 1px solid rgb(184, 184, 184);
+    border-radius: 5px;
+}
+
+.campo_form input,
+.campo_form textarea,
+.campo_form select {
+    font-size: 12pt;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.campo_form select {
+    height: 30px;
+}
+
+.campo_form textarea {
+    height: 60px;
+}
+
+.campo_form .botao {
+    height: 40px;
+    color: white;
+    background-color: rgb(70, 161, 74);
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.campo_form label {
+    font-size: 14pt;
+}
+
+@media(max-width: 411px){
+    .campo_form{
+        width: 80%;
+    }
+}

@@ -1,14 +1,23 @@
 {% extends 'shared/layout.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/formularios.css' %}">
+{% endblock %}
 
 {% block conteudo %}
 
     <h1>Login</h1>
     <p>{{msg}}</p>
-<form action="/login" method="post">
-    {% csrf_token %}
-    <input type="email" name="email" placeholder="E-mail">
-    <input type="submit" value="Enviar">
-</form>
+    <div class="formulario">
+        <form action="/login" method="post">
+            {% csrf_token %}
+            <div class="campo_form">
+                <input type="email" name="email" placeholder="E-mail">
+                <input class="botao" type="submit" value="Enviar">
+            </div>
+        </form>
+    </div>
 
 {% endblock %}
 

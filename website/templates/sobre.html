@@ -1,17 +1,21 @@
 {% extends 'shared/layout.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/sobre.css' %}">
+{% endblock %}
 
 {% block conteudo %}
 
 <h1>Listagem de Ideias</h1>
 
-<p>
-    {% for ideia in ideia %}
-        <p>{{ ideia.pessoa.nome }}</p>
-        <p>{{ ideia.titulo }}</p>
-        <p>{{ ideia.categorias }}</p>
-        <p>{{ ideia.descricao }}</p>
-        <hr>
-    {% endfor %}
-</p>
+{% for ideia in ideia %}
+<div class="ideias">
+    <p>{{ ideia.pessoa.nome }}</p>
+    <p>{{ ideia.titulo }}</p>
+    <p>{{ ideia.categorias }}</p>
+    <p>{{ ideia.descricao }}</p>
+</div>
+{% endfor %}
 
 {% endblock %}

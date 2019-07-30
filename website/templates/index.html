@@ -1,4 +1,9 @@
 {% extends 'shared/layout.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/formularios.css' %}">
+{% endblock %}
 
 {% block conteudo %}
 
@@ -7,28 +12,42 @@
 
 {{ msg }}
 
-<form action="/" method="post">
-    {% csrf_token %} <!-- csrf é obrigatório ser declarado, funciona como se fosse um carimbo a cada requisição -->
-    <label for="">Nome</label>
-    <input type="text" name="nome">
+<div class="formulario">
+    <form action="/" method="post">
+        {% csrf_token %} <!-- csrf é obrigatório ser declarado, funciona como se fosse um carimbo a cada requisição -->
+        <div class="campo_form">
+            <label for="">Nome</label>
+            <input type="text" name="nome">
+        </div>
 
-    <label for="">Sobrenome</label>
-    <input type="text" name="sobrenome">
+        <div class="campo_form">
+            <label for="">Sobrenome</label>
+            <input type="text" name="sobrenome">
+        </div>
 
-    <label for="E-mail">E-mail</label>
-    <input type="email" name="email">
+        <div class="campo_form">
+            <label for="E-mail">E-mail</label>
+            <input type="email" name="email">
+        </div>
 
-    <label for="">Gênero</label>
-    <select name="genero" id="">
-        <option value="F">Feminino</option>
-        <option value="M">Masculino</option>
-        <option value="O">Outro</option>
-    </select>
+        <div class="campo_form">
+            <label for="">Gênero</label>
+            <select name="genero" id="">
+                <option value="F">Feminino</option>
+                <option value="M">Masculino</option>
+                <option value="O">Outro</option>
+            </select>
+        </div>
 
-    <label for="">Biografia</label>
-    <textarea type="text" name="biografia"></textarea>
+        <div class="campo_form">
+            <label for="">Biografia</label>
+            <textarea type="text" name="biografia"></textarea>
+        </div>
 
-    <input type="submit" value="Cadastrar">
-</form>
+        <div class="campo_form">
+            <input class="botao" type="submit" value="Cadastrar">
+        </div>
+    </form>
+</div>
 
 {% endblock %}

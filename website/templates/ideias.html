@@ -1,4 +1,9 @@
 {% extends 'shared/layout.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/formularios.css' %}">
+{% endblock %}
 
 {% block conteudo %}
 
@@ -9,24 +14,39 @@
         <a href="/">clique aqui para se cadastrar</a>
     </p>
 {% else %}
-    <h2>Cadastre a sua ideia {{pessoa.nome}}</h2>
-    <form action="/ideias" method="post">
-        {% csrf_token %}
-        <input type="hidden" name="email" value="{{pessoa.email}}">
-        <input type="text" name="titulo" placeholder="Nome da ideia">
-        <label for="descricao">Descreva sua ideia</label>
-        <textarea name="descricao" cols="30" rows="10">
-        </textarea>
-        <select name="categorias">
-            <option name="terra_plana" value="TERRA_PLANA">Terra Plana</option>
-            <option name="contra_groger" value="CONTRA_GROGER">Contra o coach Groger</option>
-            <option name="contra_joao " value="CONTRA_JOAO">Contra João</option>
-            <option name="publicas" value="PUBLICAS">Públicas</option>
-            <option name="outros" value="OUTROS">Outros</option>
-        </select>
-        <input type="text" name="categoria_outros" placeholder="Caso outros, qual?">
-        <input type="submit" value="Cadastrar Ideia">
-    </form>
+    <div class="subtitulo_ideias">
+        <h2>Cadastre a sua ideia {{pessoa.nome}}</h2>
+    </div>
+    <div class="formulario">
+        <form action="/ideias" method="post">
+            {% csrf_token %}
+            <div class="campo_form">
+                <input type="hidden" name="email" value="{{pessoa.email}}">
+            </div>
+            <div class="campo_form">
+                <input type="text" name="titulo" placeholder="Nome da ideia">
+            </div>
+            <div class="campo_form">
+                <label for="descricao">Descreva sua ideia</label>
+                <textarea name="descricao" cols="30" rows="10"></textarea>
+            </div>
+            <div class="campo_form">
+                <select name="categorias">
+                    <option name="terra_plana" value="TERRA_PLANA">Terra Plana</option>
+                    <option name="contra_groger" value="CONTRA_GROGER">Contra o coach Groger</option>
+                    <option name="contra_joao " value="CONTRA_JOAO">Contra João</option>
+                    <option name="publicas" value="PUBLICAS">Públicas</option>
+                    <option name="outros" value="OUTROS">Outros</option>
+                </select>
+            </div>
+            <div class="campo_form">
+                <input type="text" name="categoria_outros" placeholder="Caso outros, qual?">
+            </div>
+            <div class="campo_form">
+                <input class="botao" type="submit" value="Cadastrar Ideia">
+            </div>
+        </form>
+    </div>
 {% endif %}
 
 {% endblock %}

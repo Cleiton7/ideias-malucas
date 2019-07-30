@@ -56,7 +56,7 @@ def cadastrar_ideias(request):
             ideia.pessoa = pessoa # Não entendi essa linha
             ideia.titulo = request.POST.get('titulo')
             ideia.descricao = request.POST.get('descricao')
-            ideia.categorias = request.POST.get('categorias')
+            ideia.categorias = request.POST.get('categorias'    )
             ideia.categoria_outros = request.POST.get('categoria_outros')
             ideia.save()
             print('aeeeee')
